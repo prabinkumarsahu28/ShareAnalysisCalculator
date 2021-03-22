@@ -13,6 +13,10 @@ class MainActivity : AppCompatActivity() {
     private var v: Float = 0.toFloat()
     private var cl: Float = 0.toFloat()
 
+    private var t1: Float = 0.toFloat()
+    private var t2: Float = 0.toFloat()
+    private var t3: Float = 0.toFloat()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -47,9 +51,25 @@ class MainActivity : AppCompatActivity() {
             val cs: Float = x * (cs1 - cl)
             val ps: Float = x * (ps1 - cl)
             val tg: Float = cs - ps
-            val t1: Float = ((cs - m2) / x) + cl
-            val t2: Float = ((cs - m1) / x) + cl
-            val t3: Float = ((cs - m) / x) + cl
+
+            if (cs > 1.2) {
+                t1 = ((m2 - cs) / x) + cl
+                t2 = ((m1 - cs) / x) + cl
+                t3 = ((m - cs) / x) + cl
+            } else if (cs < -1.2) {
+                t1 = ((m2 - cs) / x) - cl
+                t2 = ((m1 - cs) / x) - cl
+                t3 = ((m - cs) / x) - cl
+            } else if (cs < 0 && cs >= -1.2) {
+                t1 = ((m2 - cs) / x) + cl
+                t2 = ((m1 - cs) / x) + cl
+                t3 = ((m - cs) / x) + cl
+            } else if (cs in 0.0..1.2) {
+                t1 = ((m1 - cs) / x) - cl
+                t2 = ((m2 - cs) / x) - cl
+                t3 = ((m - cs) / x) - cl
+            }
+
             val r1: Float = tg / x
             val r2: Float = ((tg * 0.66) / x).toFloat()
             val r3: Float = ((tg * 0.33) / x).toFloat()
