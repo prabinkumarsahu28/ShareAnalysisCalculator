@@ -8,10 +8,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private var cs1: Float = 0.000000000001.toFloat()
-    private var ps1: Float = 0.000000000001.toFloat()
-    private var v: Float = 0.000000000001.toFloat()
-    private var cl: Float = 0.000000000001.toFloat()
+    private var cs1: Float = 0.toFloat()
+    private var ps1: Float = 0.toFloat()
+    private var v: Float = 0.toFloat()
+    private var cl: Float = 0.toFloat()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,81 +21,18 @@ class MainActivity : AppCompatActivity() {
         llT2R2.isVisible = false
         llT3R3.isVisible = false
 
-//        val viewModel = ViewModelProviders.of(this).get(DataViewModel::class.java)
-//
-//        etCs.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                viewModel.cs1Changed(text.toString().toFloat())
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//
-//        etPs.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                viewModel.ps1Changed(text.toString().toFloat())
-//
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//
-//        etV.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                viewModel.vChanged(text.toString().toFloat())
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//
-//        etCl.addTextChangedListener(object : TextWatcher {
-//            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//            }
-//
-//            override fun onTextChanged(text: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                viewModel.clChanged(text.toString().toFloat())
-//            }
-//
-//            override fun afterTextChanged(p0: Editable?) {
-//            }
-//        })
-//
-//        viewModel.getCs1LiveData().observe(this, {
-//            cs1 = it
-//        })
-//
-//        viewModel.getPs1LiveData().observe(this, {
-//            ps1 = it
-//        })
-//
-//        viewModel.getVLiveData().observe(this, {
-//            v = it
-//        })
-//
-//        viewModel.getClLiveData().observe(this, {
-//            cl = it
-//        })
-
         btnResult.setOnClickListener {
 
-            if (etV.text.toString().isNotEmpty() || etCl.text.toString().isNotEmpty()) {
+            if (etV.text.toString().isNotEmpty()) {
                 v = etV.text.toString().toFloat()
+            }
+            if (etCl.text.toString().isNotEmpty()) {
                 cl = etCl.text.toString().toFloat()
             }
-            if (etCs.text.toString().isNotEmpty() || etPs.text.toString().isNotEmpty()) {
+            if (etCs.text.toString().isNotEmpty()) {
                 cs1 = etCs.text.toString().toFloat()
+            }
+            if (etPs.text.toString().isNotEmpty()) {
                 ps1 = etPs.text.toString().toFloat()
             }
 
